@@ -1,5 +1,7 @@
-export default function StudyList({ items, selectedId, onSelect }) {
-  const list = items.map(item => (
+export default function StudyList({ items, selectedId, onSelect, category, setCategory }) {
+  const filteredItems =
+    category === "all" ? items : items.filter(item => item.category === category);
+  const list = filteredItems.map(item => (
     <div
       className={item.id === selectedId ? "active" : ""}
       key={item.id}
@@ -15,6 +17,13 @@ export default function StudyList({ items, selectedId, onSelect }) {
   ));
   return (
     <>
+      <h2>카테고리 필터</h2>
+      <div className="buttonDiv">
+        <button onClick={() => setCategory("all")}>전체</button>
+        <button onClick={() => setCategory("concept")}>concept</button>
+        <button onClick={() => setCategory("library")}>library</button>
+        <button onClick={() => setCategory("hook")}>hook</button>
+      </div>
       <h2>학습 목록</h2>
       {list}
     </>

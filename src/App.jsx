@@ -6,8 +6,8 @@ import { useState } from "react";
 
 function App() {
   console.log(reactData);
-
   const [selectedId, setSelectedId] = useState(null);
+  const [category, setCategory] = useState("all");
   const onSelect = _id => {
     setSelectedId(_id);
   };
@@ -20,7 +20,13 @@ function App() {
         desc={reactData[0].desc}
         category={reactData[0].category}
       />
-      <StudyList items={reactData} selectedId={selectedId} onSelect={onSelect} />
+      <StudyList
+        items={reactData}
+        selectedId={selectedId}
+        onSelect={onSelect}
+        category={category}
+        setCategory={setCategory}
+      />
     </>
   );
 }
