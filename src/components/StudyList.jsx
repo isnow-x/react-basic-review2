@@ -1,6 +1,6 @@
 export default function StudtList({ items }) {
   const list = items.map(i => (
-    <div>
+    <div key={i.id}>
       <h3>
         {i.id}. {i.title}
       </h3>
