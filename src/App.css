@@ -1,0 +1,22 @@
+.App {
+  padding: 20px;
+}
+
+div {
+  text-align: center;
+  padding: 20px;
+}
+
+div.active {
+  background: #3498db;
+  color: #fff;
+  border: 1px solid blue;
+  border-radius: 10px;
+}
+
+div strong {
+  display: none;
+}
+div strong.active {
+  display: block;
+}

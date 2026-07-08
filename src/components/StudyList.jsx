@@ -1,11 +1,16 @@
-export default function StudtList({ items }) {
-  const list = items.map(i => (
-    <div key={i.id}>
+export default function StudyList({ items, selectedId, onSelect }) {
+  const list = items.map(item => (
+    <div
+      className={item.id === selectedId ? "active" : ""}
+      key={item.id}
+      onClick={() => onSelect(item.id)}
+    >
       <h3>
-        {i.id}. {i.title}
+        {item.id}. {item.title}
       </h3>
-      <p>{i.desc}</p>
-      <p>분류: {i.category}</p>
+      <p>{item.desc}</p>
+      <p>분류: {item.category}</p>
+      <strong className={item.id === selectedId ? "active" : ""}>선택된 항목입니다.</strong>
     </div>
   ));
   return (

@@ -1,10 +1,16 @@
 import "./App.css";
 import reactData from "./data/data.json";
 import StudyInfo from "./components/StudyInfo";
-import StudtList from "./components/StudyList";
+import StudyList from "./components/StudyList";
+import { useState } from "react";
 
 function App() {
   console.log(reactData);
+
+  const [selectedId, setSelectedId] = useState(null);
+  const onSelect = _id => {
+    setSelectedId(_id);
+  };
   return (
     <>
       <h1>React Basic Review Mission 2</h1>
@@ -14,7 +20,7 @@ function App() {
         desc={reactData[0].desc}
         category={reactData[0].category}
       />
-      <StudtList items={reactData} />
+      <StudyList items={reactData} selectedId={selectedId} onSelect={onSelect} />
     </>
   );
 }
